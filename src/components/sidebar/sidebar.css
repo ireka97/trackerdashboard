@@ -1,0 +1,88 @@
+/* sidebar.css */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background-color: #32595e;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+img.sidebar-logo {
+ width: 50px;
+ border-radius: 50%;
+}
+
+.sidebar-header {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ gap: 5px;
+ margin-top: 10px;
+ margin-bottom: 0px;
+ padding-bottom: 5px;
+}
+
+.sidebar-brand {
+ display: flex;
+ font-size: 22px;
+ font-weight: 200px;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
+}
+
+.sidebar-list {
+ list-style: none;
+ padding: 4px;
+ align-items: left;
+}
+
+.sidebar-list li {
+ margin: 10px 0;
+ border-bottom: solid 1px #f5f5f5;
+}
+
+.sidebar-list li a {
+ color: white;
+ text-align: left;
+ text-decoration: none;
+ padding: 0.5rem 1rem;
+ display: block;
+ border-radius: 4px;
+ transition: background-color 0.2s;
+}
+
+.sidebar-icon {
+ margin-right: 8px;
+}
+
+.sidebar-list li.active a,
+.sidebar-list li a:hover {
+ background-color: #495057;
+}
+
+.sidebar.hide {
+ transform: translateX(-100%);
+}
+
+.sidebar.show {
+ transform: translateX(0);
+ width: 200;
+}
+
+.sidebar-toggle {
+ position: absolute;
+ top: 15px;
+ right: -40px; /* supaya muncul di luar sidebar */
+ background-color: #333;
+ color: white;
+ padding: 8px 10px;
+ cursor: pointer;
+ border-radius: 4px;
+ z-index: 1100;
+}

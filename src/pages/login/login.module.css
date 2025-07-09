@@ -1,0 +1,119 @@
+.loginContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+}
+
+@media (min-width: 640px) {
+  .loginContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageSection {
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .imageSection {
+    display: block;
+  }
+}
+
+.loginImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(55, 105, 5, 0.6), transparent);
+}
+
+.formSection {
+  background-color: #2d3748;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formBox {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1a202c;
+  border-radius: 8px;
+  padding: 32px 32px;
+}
+
+.formTitle {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-family: serif;
+  font-size: 1.125rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  color: #cbd5e0;
+  padding: 10px 0;
+}
+
+.inputLabel {
+  font-weight: bold;
+  /* margin-left: 0px; */
+}
+
+.inputField {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #4a5568;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  color: white;
+}
+
+.inputField:focus {
+  background-color: #2d3748;
+  border: 1px solid #4299e1;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.buttonWrapper {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #14b8a6;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(20, 184, 166, 0.5);
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  background-color: #0d9488;
+  box-shadow: 0 4px 6px rgba(20, 184, 166, 0.4);
+}

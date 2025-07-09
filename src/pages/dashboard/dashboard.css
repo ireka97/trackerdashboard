@@ -1,0 +1,47 @@
+.dashboard-wrapper {
+ display: flex;
+ flex-direction: row; /* Sidebar di kiri, konten utama di kanan */
+ /* height: 100vh; Full screen */
+}
+
+.header-container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ background-color: #fff;
+ padding: 1rem 2rem;
+ z-index: 10;
+}
+
+/* .dashboard-body is no longer used directly for main layout, replaced by .main-content-wrapper */
+.main-content-wrapper {
+ display: flex;
+ height: 100vh;
+ flex-direction: column; 
+ flex-grow: 1; 
+ overflow: hidden; 
+ transition: margin-left 0.3s ease-in-out;
+ margin-left: 220px;
+}
+
+.dashboard-content {
+ flex-grow: 1; /* Konten mengambil sisa ruang yang ada di dalam main-content-wrapper */
+ padding: 1.5rem; /* Padding disesuaikan */
+ background-color: #ebedef; /* Warna latar disesuaikan agar mirip gambar */
+ overflow-y: auto;
+}
+
+/* Saat sidebar tampil  */
+.main-content-wrapper.with-sidebar {
+ display: flex;
+ width: 100%;
+ flex-direction: column; 
+ flex-grow: 1; 
+ overflow: hidden; 
+ 
+}
+
+/* Saat sidebar disembunyikan */
+.main-content-wrapper.full-width {
+ margin-left: 0;
+}

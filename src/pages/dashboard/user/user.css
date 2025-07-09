@@ -1,0 +1,146 @@
+.users-actions {
+ margin-bottom: 20px;
+ display: flex;
+ gap: 10px;
+ align-items: center;
+}
+
+.search-wrapper {
+ position: relative;
+ display: inline-block;
+ width: 100%;
+}
+
+.search-icon {
+ position: absolute;
+ right: 10px;
+ top: 50%;
+ transform: translateY(-50%);
+ color: #888;
+ pointer-events: none;
+ font-size: 16px;
+}
+
+.search-input {
+ width: 100%;
+ padding: 10px 35px 10px 10px; /* ruang kanan buat ikon */
+ height: 40px;
+ font-size: 14px;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ box-sizing: border-box;
+}
+.select-wrapper {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+}
+
+label {
+ display: flex;
+ flex-wrap: wrap;
+ align-content: center;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+select {
+ width: 200px;
+ height: 30px;
+ align-items: center;
+ display: flex;
+ border: 2px solid;
+ /* margin: 0px 0px; */
+}
+
+.table-wrapper {
+ background-color: #ffffff;
+ padding: 10px;
+ margin-top: 10px;
+}
+
+.pagination-controls {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 0px;
+ gap: 50px;
+ border: 1px solid #818181;
+ background-color: #00000011;
+}
+
+.pagination-button {
+ padding: 5px 20px;
+ font-size: 12px;
+ border: 1px solid #818181;
+ border-radius: 4px;
+ cursor: pointer;
+ background-color: #ffffff;
+ color: #000000;
+ transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover {
+ background-color: #000000;
+ color: #ffffff;
+}
+
+.map-container {
+ background-color: #ffffff;
+ padding: 10px;
+ margin-top: 10px;
+}
+
+.leaflet-popup-content-wrapper {
+ text-align: center;
+}
+.title-peta {
+ font-size: 20px;
+ font-weight: bold;
+ text-align: center;
+}
+.legend-wrapper {
+ background-color: rgb(175, 175, 175);
+ padding: 10px;
+ margin-top: 10px;
+}
+.legend-title {
+ font-size: 20px;
+ font-weight: bold;
+ text-align: center;
+ margin-top: 0px;
+}
+.legend {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: stretch;
+ justify-content: flex-start;
+ gap: 10px;
+ align-items: center;
+ align-content: center;
+ margin-left: 10px;
+}
+.legend-item {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ background: #f3f3f3;
+ padding: 6px 10px;
+ border-radius: 6px;
+ font-size: 14px;
+}
+.color-box-jalur {
+ width: 20px;
+ height: 3px;
+ background-color: rgb(0, 0, 0);
+ display: inline-block;
+ border-radius: 3px;
+}
+.color-box-jejak {
+ width: 20px;
+ height: 3px;
+ background-color: rgb(0, 60, 255);
+ display: inline-block;
+ border-radius: 3px;
+}

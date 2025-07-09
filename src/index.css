@@ -1,0 +1,46 @@
+/* @import "tailwindcss";
+@tailwind base;
+/* @tailwind components;
+@tailwind utilities; */
+*/ :root {
+ --primary-color: #007bff;
+ --secondary-color: #28a745;
+ --danger-color: #dc3545;
+ --warning-color: #ffc107;
+ --info-color: #17a2b8;
+ --light-color: #f8f9fa;
+ --dark-color: #343a40;
+ --breakpoint-xs: 0;
+ --breakpoint-sm: 576px;
+ --breakpoint-md: 768px;
+ --breakpoint-lg: 992px;
+ --breakpoint-xl: 1200px;
+ --font-family-sans-serif: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+/* body{
+    background-color: #17a2b8;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+html,
+body {
+ height: 100%;
+ width: 100%;
+ font-family: sans-serif;
+}
+
+body {
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+}
+
+#root {
+ height: 100%;
+ width: 100%;
+}

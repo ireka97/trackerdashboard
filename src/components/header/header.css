@@ -1,0 +1,55 @@
+.header {
+ display: flex;
+ align-items: center;
+ justify-content: center; /* ini yang bikin posisinya ke tengah */
+ gap: 1rem;
+ background: #0c1325;
+ color: #ffffff;
+ padding-top: 1px;
+ padding-bottom: 1px;
+ border-bottom: solid 5px #99c983;
+}
+
+.header-right {
+ position: absolute;
+ right: 20px;
+}
+
+.identicon-header {
+ display: flex;
+ border-radius: 5%;
+ width: 120px;
+ border: 2px solid #ffffff;
+ background-color: #f7f7f7;
+ color: #000000;
+ flex-direction: column;
+ align-content: center;
+ justify-content: space-between;
+ align-items: center;
+ font-size: medium;
+ font-weight: 700;
+ cursor: pointer;
+ margin: 0 -10px;
+}
+
+.identicon-top {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5px;
+}
+.identicon-header-username {
+ color: #000000;
+ font-size: medium;
+ text-align: center;
+}
+
+.logout-text {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #000000;
+  color: red;
+}

@@ -1,0 +1,5 @@
+Using band 4 of source image as alpha.
+Creating output file that is 1718P x 1419L.
+Processing /data/tmpfs/2025-06-04-21-12-40-rABsU/test-jalur.pdf [1/1] : 0...10...20...30...40...50...60...70...80...90...100 - done.
+Input file size is 1718, 1419
+0...10...20...30...40...50...60...70...80...90...100 - done.
