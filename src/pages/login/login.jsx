@@ -6,7 +6,7 @@ import {ErrorAlert, SuccessAlert} from "../../components/alert"
 import loginImg from "../../assets/login.jpg"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faUser, faLock} from "@fortawesome/free-solid-svg-icons"
-import styles from "./Login.module.css"
+import styles from "./login.module.css"
 
 export default function Login() {
  const navigate = useNavigate()

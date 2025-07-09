@@ -5,7 +5,7 @@ import loginImg from "../../assets/login.jpg"
 import {ErrorAlert, SuccessAlert} from "../../components/alert"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faUser, faLock, faEnvelope} from "@fortawesome/free-solid-svg-icons"
-import styles from "./Signup.module.css"
+import styles from "./signup.module.css"
 
 export default function Signup() {
  const navigate = useNavigate()
