@@ -2,21 +2,27 @@
 @tailwind base;
 /* @tailwind components;
 @tailwind utilities; */
-*/ :root {
- --primary-color: #007bff;
- --secondary-color: #28a745;
- --danger-color: #dc3545;
- --warning-color: #ffc107;
- --info-color: #17a2b8;
- --light-color: #f8f9fa;
- --dark-color: #343a40;
- --breakpoint-xs: 0;
- --breakpoint-sm: 576px;
- --breakpoint-md: 768px;
- --breakpoint-lg: 992px;
- --breakpoint-xl: 1200px;
- --font-family-sans-serif: "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@font-face {
+  font-family: 'Chewy';
+  src: url('./assets/fonts/Chewy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: 'Chewy', "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 /* body{
     background-color: #17a2b8;

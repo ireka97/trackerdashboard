@@ -4,12 +4,8 @@ import React from "react"
 import {renderToStaticMarkup} from "react-dom/server"
 
 // ✅ Import ikon yang digunakan saja (sesuai isi jalur.js)
-import {FaHome} from "@react-icons/all-files/fa/FaHome"
-import {FaCampground} from "@react-icons/all-files/fa/FaCampground"
-import {FaMountain} from "@react-icons/all-files/fa/FaMountain"
-import {FaParking} from "@react-icons/all-files/fa/FaParking"
-import {FaCoffee} from "@react-icons/all-files/fa/FaCoffee"
-import {FaRunning} from "@react-icons/all-files/fa/FaRunning"
+import {FaHome, FaCampground, FaMountain, FaParking, FaCoffee, FaRunning} from "react-icons/fa"
+import {MdForkLeft} from "react-icons/md"
 
 const iconMap = {
  FontAwesome5_home: FaHome,
@@ -18,19 +14,39 @@ const iconMap = {
  FontAwesome5_parking: FaParking,
  FontAwesome5_coffee: FaCoffee,
  FontAwesome5_running: FaRunning,
+ MaterialIcons_forkleft: MdForkLeft
 }
+
+// const libMap = {
+//  FontAwesome5: {
+//   FaHome,
+//   FaCampground,
+//   FaMountain,
+//   FaParking,
+//   FaCoffee,
+//   FaRunning,
+//  },
+//  MaterialIcons: {
+//   MdForkLeft,
+//  }
+// }
 
 const libMap = {
- FontAwesome5: {
-  FaHome,
-  FaCampground,
-  FaMountain,
-  FaParking,
-  FaCoffee,
-  FaRunning,
- }
+ Fa: {FaHome, FaCampground, FaMountain, FaParking, FaCoffee, FaRunning},
+ Md: {MdForkLeft}
 }
 
+const prefixes = ["Fa", "Md"]
+
+const iconNameOverrides = {
+ forkleft: "ForkLeft",
+ campground: "Campground",
+ mountain: "Mountain",
+ parking: "Parking",
+ home: "Home",
+ coffee: "Coffee",
+ running: "Running"
+}
 
 export const getLeafletIconFromConfig = (iconConfig) => {
  if (!iconConfig || !iconConfig.name || !iconConfig.lib) return undefined
@@ -95,14 +111,40 @@ export const getLeafletIconUser = (iconConfig) => {
  })
 }
 
+// export function MarkerIcon(config) {
+//  if (!config || !config.name || !config.lib) return null
+
+//  const IconLib = libMap[config.lib]
+//  const nameKey = "Fa" + capitalize(config.name)
+
+//  const Icon = IconLib?.[nameKey]
+//  return Icon ? <Icon color={config.color || "black"} size={config.size || 20} /> : null
+// }
+
+// const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1)
+
+const toPascalCase = (s) =>
+ iconNameOverrides[s] ||
+ s
+  .split(/[-_]/)
+  .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+  .join("")
+  
 export function MarkerIcon(config) {
- if (!config || !config.name || !config.lib) return null
+ if (!config || !config.name) return null
 
- const IconLib = libMap[config.lib]
- const nameKey = "Fa" + capitalize(config.name)
+ const iconName = toPascalCase(config.name)
 
- const Icon = IconLib?.[nameKey]
- return Icon ? <Icon color={config.color || "black"} size={config.size || 20} /> : null
+ for (const prefix of prefixes) {
+  const IconSet = libMap[prefix]
+  const iconKey = prefix + iconName
+
+  const Icon = IconSet?.[iconKey]
+  if (Icon) {
+   return <Icon color={config.color || "black"} size={config.size || 20} />
+  }
+ }
+
+ console.warn("❗ Icon not found in any prefix:", config.name)
+ return null
 }
-
-const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1)

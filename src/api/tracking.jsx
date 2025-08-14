@@ -6,3 +6,4 @@ const BASE_URL = `${import.meta.env.VITE_BASE_URL}/tracking`
 export const GetTrackings = () => axios.get(`${BASE_URL}/getall`)
 export const GetTrackingById = (tracking_id) => axios.get(`${BASE_URL}/${tracking_id}`)
 export const GetTrackingByUserId = (user_id) => axios.get(`${BASE_URL}/user/${user_id}`)
+export const GetAllTrackingModelByUser = () => axios.get(`${BASE_URL}/user/all`)

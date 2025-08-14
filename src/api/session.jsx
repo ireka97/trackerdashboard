@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = `${import.meta.env.VITE_BASE_URL}/sessions`
+// const BASE_URL = "http://localhost:3008/sessions"
 
 export const GetSessions = () => axios.get(`${BASE_URL}/`)
 export const GetSessionById = (tracking_session_id) => axios.get(`${BASE_URL}/${tracking_session_id}`)

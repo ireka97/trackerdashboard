@@ -1,0 +1,55 @@
+.notfound-container {
+ display: flex;
+ flex-direction: column;
+ justify-content: center; /* tengah vertikal */
+ align-items: center; /* tengah horizontal */
+ padding: 50px 20px;
+ box-sizing: border-box;
+ position: relative;
+}
+
+.notfound-oops {
+ font-size: 100px;
+ margin: 0;
+ background: url("./../../assets/background.jpg") center center/cover no-repeat;
+ background-size: cover;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.notfound-title {
+ font-size: 24px;
+ font-weight: bold;
+ margin: 20px 0 10px;
+}
+
+.notfound-description {
+ color: #555;
+ font-size: 16px;
+ text-align: center;
+ margin-bottom: 30px;
+}
+
+.notfound-button {
+ background-color: #0047ff;
+ color: white;
+ border: none;
+ border-radius: 8px;
+ padding: 12px 24px;
+ font-size: 16px;
+ cursor: pointer;
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ transition: background-color 0.3s ease;
+}
+
+.notfound-button:hover {
+ background-color: #0036c1;
+}
+
+/* Footer di-lock ke bawah */
+/* .notfound-container > .footer {
+ margin-top: auto;
+ width: 100%;
+}
+ */
+

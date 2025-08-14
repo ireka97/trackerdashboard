@@ -3,7 +3,7 @@
  align-items: center;
  justify-content: center; /* ini yang bikin posisinya ke tengah */
  gap: 1rem;
- background: #0c1325;
+ background: #0C1D24;
  color: #ffffff;
  padding-top: 1px;
  padding-bottom: 1px;
@@ -11,8 +11,14 @@
 }
 
 .header-right {
+ display: flex;
  position: absolute;
  right: 20px;
+ align-items: center;
+ justify-content: center;
+ align-content: center;
+ flex-wrap: wrap;
+ flex-direction: row;
 }
 
 .identicon-header {
@@ -33,10 +39,10 @@
 }
 
 .identicon-top {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 5px;
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ gap: 5px;
 }
 .identicon-header-username {
  color: #000000;
@@ -45,11 +51,39 @@
 }
 
 .logout-text {
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  margin-top: 10px;
-  background-color: #000000;
-  color: red;
+ font-size: 12px;
+ font-weight: bold;
+ text-align: center;
+ width: 100%;
+ margin-top: 10px;
+ background-color: #000000;
+ color: red;
+}
+
+.notification-wrapper {
+ position: relative;
+ margin-right: 20px;
+ padding: 14px; /* ✅ kurangi padding */
+ cursor: pointer;
+ background: #ffffff;
+ border-radius: 10px;
+ display: inline-block; /* ✅ penting agar posisi badge tepat */
+}
+
+.bell-icon {
+ font-size: 25px;
+ color: #333;
+ padding: 10px; /* opsional biar klik area lebih besar */
+}
+
+.badge {
+ position: absolute;
+ top: 15px;
+ right: 15px;
+ background-color: red;
+ color: white;
+ border-radius: 50%;
+ padding: 2px 6px;
+ font-size: 10px;
+ font-weight: bold;
 }

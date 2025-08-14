@@ -1,5 +1,6 @@
 import {Link, useLocation} from "react-router-dom"
-import logo from "/public/logo.png"
+import sar from "/public/images/sarkra.jpg"
+import agl from "/public/images/agl.jpeg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
  faHome,
@@ -10,8 +11,12 @@ import {
  faPenNib,
  faGear,
  faPenToSquare,
+ faMap,
  faBars,
- faXmark
+ faXmark,
+ faCheckSquare,
+ faAddressCard,
+ faHiking
 } from "@fortawesome/free-solid-svg-icons"
 import "./sidebar.css"
 
@@ -22,9 +27,29 @@ const navItems = [
   path: "/dashboard"
  },
  {
-  name: "User",
-  icon: faUser,
+  name: "Peta",
+  icon: faMap,
+  path: "/dashboard/peta"
+ },
+ {
+  name: "User/Pendaki",
+  icon: faHiking,
   path: "/dashboard/user"
+ },
+ {
+  name: "Status Pendakian",
+  icon: faCheckSquare,
+  path: "/dashboard/statuspendakian"
+ },
+ {
+  name: "Registrasi",
+  icon: faAddressCard,
+  path: "/dashboard/registrasi"
+ },
+ {
+  name: "Setting",
+  icon: faCog,
+  path: "/dashboard/setting"
  }
 ]
 
@@ -36,8 +61,9 @@ export default function Sidebar({isOpen, setIsOpen}) {
     <FontAwesomeIcon icon={isOpen ? faXmark : faBars} />
    </div>
    <div className="sidebar-header">
-    <img src={logo} alt="logo" className="sidebar-logo" />
-    <div className="sidebar-brand">Admin Panel</div>
+    <img src={sar} alt="logo" className="sidebar-logo" />
+    <div className="sidebar-brand">Dashboard Tracking</div>
+    <img src={agl} alt="logo" className="sidebar-logo" />
    </div>
    <ul className="sidebar-list">
     {navItems.map((item) => (

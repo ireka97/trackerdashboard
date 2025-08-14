@@ -1,10 +1,47 @@
-footer.dashboard-footer {
+.dashboard-footer {
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: space-around;
  background: #000000;
  color: #ffffff;
- border-top: solid 2px #615e41;
+ border-top: solid 2px #11d854;
  font-size: 14px;
- height: 20px;
+ flex-direction: column;
+ flex-wrap: nowrap;
+}
+
+.supported-tittle {
+ text-align: center;
+ font-size: 18px;
+ margin: 5px;
+}
+
+img {
+ height: 50px;
+ width: 50px;
+ object-fit: contain; /* agar logo tidak terpotong */
+}
+
+.sponsor-wrapper {
+ display: flex;
+ flex-direction: row;
+ align-content: center;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
+ margin-top: 1px;
+}
+
+.copyright {
+ width: 100%;
+ margin-top: 1px;
+ border-top: solid 2px #474747;
+ text-align: center;
+}
+
+@media (max-width: 768px) {
+ .sponsor-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+ }
 }

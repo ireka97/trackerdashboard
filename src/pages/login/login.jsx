@@ -27,7 +27,6 @@ export default function Login() {
 
   try {
    const response = await loginAdmin(data)
-   console.log("✅ response:", response)
 
    if (response.status === 200) {
     setSuccess(response.data.message)
@@ -38,7 +37,6 @@ export default function Login() {
     setError(response?.data?.message || response?.data?.messege || "Terjadi kesalahan saat login.")
    }
   } catch (error) {
-   console.error("❌ Error dari backend:", error)
    const msg = error.response?.data?.message || error.response?.data?.messege || "Terjadi kesalahan saat login."
    setError(msg)
   }

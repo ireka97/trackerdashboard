@@ -23,7 +23,7 @@ export default function DirectionArrowDecorator({polylineCoords}) {
       pathOptions: {
        stroke: true,
        color: "white",
-       weight:3,
+       weight:5,
        opacity: 1
       }
      })

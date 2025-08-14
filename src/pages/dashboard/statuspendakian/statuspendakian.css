@@ -1,0 +1,102 @@
+.status-pendakian-container {
+ margin: 0 10px;
+ /* padding: 1rem; */
+ font-family: sans-serif;
+}
+
+.tittle {
+ text-align: center;
+}
+
+.pendakian-status-wrapper {
+ display: flex;
+ flex-wrap: wrap;
+ align-content: center;
+ justify-content: center;
+ align-items: stretch;
+ gap: 10px;
+}
+
+.status-wrapper {
+ width: 30%;
+ border-radius: 12px;
+ padding: 10px;
+ color: white;
+ transition: all 0.3s ease-in-out;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status-pendakian-header {
+ text-align: center;
+ margin-top: 5px;
+}
+
+/* Jika status dibuka: latar hijau */
+.status-open {
+ background-color: #38a169; /* Tailwind green-600 */
+}
+
+/* Jika status ditutup: latar merah */
+.status-closed {
+ background-color: #e53e3e; /* Tailwind red-600 */
+}
+
+.status-pendakian-header h1 {
+ font-size: 2rem;
+ margin-bottom: 1rem;
+}
+
+.status-pendakian-content p {
+ margin: 0.5rem 0;
+ font-size: 1.1rem;
+}
+
+.status-pendakian-actions {
+ margin-top: 2rem;
+ text-align: center;
+}
+
+.status-pendakian-actions button {
+ font-size: 1rem;
+ font-weight: bold;
+ background-color: rgba(255, 255, 255, 0.15);
+ color: white;
+ padding: 10px 20px;
+ border: none;
+ border-radius: 8px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.status-pendakian-actions button:hover {
+ background-color: rgba(255, 255, 255, 0.25);
+}
+
+.button-status {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+ .status-wrapper {
+  padding: 1rem;
+ }
+
+ .status-pendakian-header h1 {
+  font-size: 1.5rem;
+ }
+
+ .status-pendakian-content p {
+  font-size: 1rem;
+ }
+
+ .status-pendakian-actions button {
+  width: 100%;
+ }
+}

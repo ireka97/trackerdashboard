@@ -1,14 +1,14 @@
 /* sidebar.css */
 .sidebar {
-  width: 220px;
-  height: 100vh;
-  background-color: #32595e;
-  position: fixed;
-  left: 0;
-  top: 0;
-  color: white;
-  transition: transform 0.3s ease;
-  z-index: 1000;
+ width: 220px;
+ height: 100vh;
+ background-color: #32595e;
+ position: fixed;
+ left: 0;
+ top: 0;
+ color: white;
+ transition: transform 0.3s ease;
+ z-index: 1000;
 }
 
 img.sidebar-logo {
@@ -25,12 +25,16 @@ img.sidebar-logo {
  margin-top: 10px;
  margin-bottom: 0px;
  padding-bottom: 5px;
+ padding-left: 5px;
+ padding-right: 5px;
+ text-shadow: -3px 5px 6px rgb(6 62 7 / 87%);
 }
 
 .sidebar-brand {
  display: flex;
- font-size: 22px;
+ font-size: 20px;
  font-weight: 200px;
+ font-family: "Chewy", cursive;
  text-align: center;
  justify-content: center;
  align-items: center;
@@ -63,7 +67,9 @@ img.sidebar-logo {
 
 .sidebar-list li.active a,
 .sidebar-list li a:hover {
- background-color: #495057;
+ background-color: #c4dedd;
+ color: black;
+ font-weight: 900;
 }
 
 .sidebar.hide {

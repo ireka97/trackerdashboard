@@ -1,156 +1,491 @@
+/* home.css */
+
 .user-container-fluid {
  padding: 5px;
- margin-top: 5px;
+ font-family: "Segoe UI", sans-serif;
 }
 
-.users-actions {
- margin-bottom: 20px;
+.title-dashboard {
+ text-align: center;
+ margin-bottom: 2rem;
+ font-size: 2rem;
+}
+
+.global-summary-wrapper {
  display: flex;
- gap: 10px;
- align-items: center;
-}
-
-.search-wrapper {
- position: relative;
- display: inline-block;
- width: 100%;
-}
-
-.search-icon {
- position: absolute;
- right: 10px;
- top: 50%;
- transform: translateY(-50%);
- color: #888;
- pointer-events: none;
- font-size: 16px;
-}
-
-.search-input {
- width: 100%;
- padding: 10px 35px 10px 10px; /* ruang kanan buat ikon */
- height: 40px;
- font-size: 14px;
- border: 1px solid #ccc;
- border-radius: 4px;
- box-sizing: border-box;
-}
-.select-wrapper {
- display: flex;
- flex-wrap: wrap;
+ gap: 1rem;
  justify-content: space-between;
-}
-
-label {
- display: flex;
+ margin-bottom: 2rem;
  flex-wrap: wrap;
- align-content: center;
- flex-direction: column;
- justify-content: center;
- align-items: center;
 }
 
-select {
- width: 200px;
- height: 30px;
- align-items: center;
- display: flex;
- border: 2px solid;
- /* margin: 0px 0px; */
+.global-card {
+ flex: 1;
+ min-width: 180px;
+ background: #fff;
+ border-radius: 12px;
+ padding: 1rem;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.table-wrapper {
- background-color: #ffffff;
- padding: 10px;
- margin-top: 10px;
+.global-card h4 {
+ font-size: 16px;
+ margin-bottom: 0.25rem;
 }
 
-.pagination-controls {
- display: flex;
- justify-content: center;
- align-items: center;
- margin-top: 0px;
- gap: 50px;
- border: 1px solid #818181;
- background-color: #00000011;
+.global-card h2 {
+ font-size: 32px;
+ margin: 0;
 }
 
-.pagination-button {
- padding: 5px 20px;
- font-size: 12px;
- border: 1px solid #818181;
- border-radius: 4px;
- cursor: pointer;
- background-color: #ffffff;
- color: #000000;
- transition: background-color 0.3s ease;
+.global-card p {
+ color: #888;
+ font-size: 14px;
 }
 
-.pagination-button:hover {
- background-color: #000000;
- color: #ffffff;
+/* Warna-warna sesuai kategori */
+.global-summary-wrapper .green {
+ border-top: 6px solid #4caf50;
 }
 
-.map-container {
- background-color: #ffffff;
- padding: 10px;
- margin-top: 10px;
+.global-summary-wrapper .yellow {
+ border-top: 6px solid #ffc107;
 }
 
-.map-view {
- height: 600px;
- border: 2px solid #000;
+.global-summary-wrapper .blue {
+ border-top: 6px solid #2196f3;
 }
 
-.leaflet-popup-content-wrapper {
+.global-summary-wrapper .gray {
+ border-top: 6px solid #9e9e9e;
+}
+
+.status-pendakian-wrapper {
+ background-color: #b9e8ee;
+ padding: 10px 10px;
+ border-radius: 10px;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ margin-top: -10px;
+}
+
+.status-header-title {
  text-align: center;
+ margin-bottom: 1rem;
+ font-size: 1.5rem;
 }
-.title-peta {
- font-size: 20px;
- font-weight: bold;
- text-align: center;
-}
-.legend-wrapper {
- background-color: rgb(175, 175, 175);
- padding: 10px;
- margin-top: 10px;
-}
-.legend-title {
- font-size: 20px;
- font-weight: bold;
- text-align: center;
- margin-top: 0px;
-}
-.legend {
+
+.jalur-card-grid {
  display: flex;
+ gap: 1.5rem;
  flex-wrap: wrap;
+ margin-bottom: 2rem;
+}
+
+.jalur-card {
+ flex: 1 1 250px;
+ background: #f8f8f8;
+ border-radius: 1rem;
+ padding: 1rem;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ border-top: 6px solid #303030;
+}
+
+.jalur-title {
+ text-align: center;
+ font-size: 1.2rem;
+ margin-bottom: 1rem;
+}
+
+.jalur-card-wrapper {
+ display: flex;
+ justify-content: space-around;
  align-items: stretch;
- justify-content: flex-start;
- gap: 10px;
- align-items: center;
- align-content: center;
- margin-left: 10px;
+ align-content: space-between;
 }
+.subcard-container {
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+}
+
+.subcard {
+ flex: 1 1 45%;
+ background: white;
+ margin: 0.5rem;
+ padding: 1rem;
+ border-radius: 0.75rem;
+ text-align: center;
+ font-size: 0.9rem;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.subcard h2 {
+ margin: 0.5rem 0 0 0;
+}
+
+.subcard.blue {
+ background: #cce5ff;
+}
+.subcard.green {
+ background: #d4edda;
+}
+.subcard.orange {
+ background: #ffeeba;
+}
+.subcard.gray {
+ background: #e2e3e5;
+}
+
+.map-container-home {
+ background-color: #b9e8ee;
+ padding: 10px;
+ margin-top: 15px;
+ border-radius: 10px;
+}
+
+.map-header-title {
+ font-size: 1.3rem;
+ font-weight: bold;
+ margin: 1rem 0;
+ text-align: center;
+}
+
+.map-sidebar {
+ width: 30%;
+}
+
+.map-wrapper {
+ display: flex;
+ flex-wrap: nowrap;
+ align-items: stretch;
+ /* width: 500px; */
+ margin-top: 20px;
+ gap: 10px;
+ justify-content: center;
+ align-content: center;
+}
+
+.search-container-home {
+ position: relative; /* <<< WAJIB */
+ width: 100%;
+}
+
+.search-input-home {
+ width: 100%;
+ padding: 0.5rem 2rem 0.5rem 3rem; /* <-- Perbesar padding-left disini */
+ border-radius: 0.5rem;
+ border: 2px solid #292929;
+ font-size: 1rem;
+}
+
+.search-icon-home {
+ position: absolute;
+ top: 50%;
+ left: 0.75rem;
+ transform: translateY(-50%);
+ color: #aaa;
+ pointer-events: none; /* supaya klik tidak ganggu input */
+}
+.suggest-list {
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ background: white;
+ border: 1px solid #ccc;
+ max-height: 200px;
+ overflow-y: auto;
+ position: absolute;
+ z-index: 10;
+ width: 100%;
+}
+
+.suggest-list li {
+ padding: 0.5rem;
+ cursor: pointer;
+}
+
+.suggest-list li:hover {
+ background: #f0f0f0;
+}
+
+.no-result {
+ padding: 0.5rem;
+ color: #999;
+ font-style: italic;
+}
+
+.map-view-dahsboard {
+ height: 600px;
+ width: 70%;
+ border-radius: 0.75rem;
+ overflow: hidden;
+ position: relative;
+ border: 2px solid #000;
+ z-index: 1;
+}
+
+.map-overlay-panel {
+ position: absolute;
+ bottom: 10px;
+ left: 10px;
+ z-index: 999;
+ background: rgba(255, 255, 255, 0.85);
+ padding: 0.75rem;
+ border-radius: 0.75rem;
+ box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+ display: flex;
+ flex-direction: column;
+ gap: 0.75rem;
+}
+
+.session-selector select {
+ padding: 0.4rem;
+ border-radius: 0.5rem;
+ border: 1px solid #ccc;
+}
+
+.pendaki-list {
+ margin-top: -10px;
+ /* height: 100%; */
+ max-height: 600px;
+ overflow-y: auto;
+ background: #e9e9e9;
+ padding: 10px;
+ border-radius: 10px;
+ border: 2px solid;
+ box-shadow: -1px 5px 6px rgba(0, 0, 0, 0.5);
+}
+
+.daftar-pendaki-tittle {
+ font-size: 1.2rem;
+ font-weight: bold;
+ margin-bottom: 1rem;
+ margin-left: 5px;
+}
+
+.pendaki-card {
+ background: #fff;
+ border-radius: 8px;
+ border-left: 6px solid #5b77c1;
+ padding: 10px;
+ margin-bottom: 8px;
+ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ cursor: pointer;
+}
+
+.pendaki-card:hover {
+ background: #18805471;
+}
+
+.no-data-message {
+ background: #fff;
+ border-radius: 8px;
+ border-left: 6px solid #5b77c1;
+ padding: 10px;
+ margin-bottom: 8px;
+ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pendaki-header {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 0.5rem;
+ flex-direction: row-reverse;
+}
+
+.status-icon-left {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ margin-right: 8px;
+ font-weight: bold;
+}
+
+.status-icon-left .naik {
+ background-color: green;
+ padding: 2px 8px;
+ border-radius: 12px;
+}
+
+.status-icon-left .turun {
+ background-color: orange;
+ padding: 2px 8px;
+ border-radius: 12px;
+}
+
+.status-icon-left .selesai {
+ background-color: blue;
+ padding: 2px 8px;
+ border-radius: 12px;
+}
+
+.status-icon-left .pause {
+ background-color: #fc4b05;
+ padding: 2px 8px;
+ border-radius: 12px;
+}
+
+.status-icon-left .continue {
+ background-color: #458845;
+ padding: 2px 8px;
+ border-radius: 12px;
+}
+
+.pendaki-header .badge {
+ padding: 2px 8px;
+ font-size: 12px;
+ border-radius: 12px;
+ text-transform: capitalize;
+}
+
+.badge-naik {
+ background-color: #d4f8d4;
+ color: green;
+}
+
+.badge-turun {
+ background-color: #fff5cc;
+ color: #c09000;
+}
+
+.badge-selesai {
+ background-color: #dcefff;
+ color: #0077cc;
+}
+
+.pendaki-info p {
+ margin: 2px 0;
+}
+
+/* Dropdown Custom */
+.map-layer-select-container {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ z-index: 1000;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+ cursor: pointer;
+ width: 180px;
+ font-size: 14px;
+}
+
+.selected-layer {
+ display: flex;
+ align-items: center;
+ padding: 5px;
+ gap: 5px;
+ border-radius: 8px;
+ background: #c7c7c791;
+ text-align: center;
+}
+
+.selected-layer img {
+ width: 35px;
+ height: 35px;
+ border-radius: 4px;
+}
+
+.dropdown-options {
+ position: absolute;
+ top: 100%;
+ right: 0;
+ margin-top: 5px;
+ background: #818181ba;
+ border-radius: 8px;
+ box-shadow: 0 4px 8px #00000026;
+ width: 180px;
+ max-height: 220px;
+ overflow-y: auto;
+}
+
+.dropdown-option {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+ padding: 8px;
+ cursor: pointer;
+ background: #dbdbdb17;
+}
+
+.dropdown-option:hover {
+ background: #f1f1f1;
+}
+
+.dropdown-option img {
+ width: 35px;
+ height: 35px;
+ border-radius: 4px;
+}
+
+.map-legend-wrapper {
+ position: relative; /* Ubah dari absolute */
+ top: unset;
+ right: unset;
+ bottom: unset;
+ left: unset;
+ width: 100%;
+ background-color: rgba(255, 255, 255, 0.95);
+ padding: 10px;
+ border-radius: 0 0 8px 8px;
+ z-index: 1;
+ box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+ margin-top: -10px; /* agar mepet ke map */
+}
+
+.legend-wrapper-home {
+ display: flex;
+ background-color: #2C4E5B;
+ padding: 10px;
+ margin-top: 20px;
+ border-radius: 10px;
+ border: 2px solid #000;
+ width: 69%;
+ flex-direction: column;
+ margin-left: 30%;
+}
+
+.legend-grid {
+ display: flex;
+ flex-wrap: nowrap; /* supaya horizontal */
+ justify-content: space-between;
+ gap: 20px;
+ width: 100%;
+}
+
+.legend-column {
+ flex: 1;
+ min-width: 0; /* Supaya shrink kalau sempit */
+}
+
 .legend-item {
  display: flex;
  align-items: center;
- gap: 8px;
- background: #f3f3f3;
- padding: 6px 10px;
- border-radius: 6px;
+ margin-bottom: 5px;
+ flex-wrap: nowrap;
+ white-space: nowrap;
  font-size: 14px;
 }
+
+.legend-item span {
+ margin-left: 5px;
+}
+
 .color-box-jalur {
  width: 20px;
- height: 3px;
- background-color: rgb(0, 0, 0);
- display: inline-block;
- border-radius: 3px;
+ height: 10px;
+ background-color: black;
 }
+
 .color-box-jejak {
  width: 20px;
- height: 3px;
- background-color: rgb(0, 60, 255);
- display: inline-block;
- border-radius: 3px;
+ height: 10px;
+}
+
+.divider {
+ height: 4px; /* tebal garis */
+ background-color: rgb(104, 132, 141); /* warna merah */
+ border: none;
 }

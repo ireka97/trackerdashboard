@@ -26,7 +26,7 @@
 
 .dashboard-content {
  flex-grow: 1; /* Konten mengambil sisa ruang yang ada di dalam main-content-wrapper */
- padding: 1.5rem; /* Padding disesuaikan */
+ padding: 5px; /* Padding disesuaikan */
  background-color: #ebedef; /* Warna latar disesuaikan agar mirip gambar */
  overflow-y: auto;
 }

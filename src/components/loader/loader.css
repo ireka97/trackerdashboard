@@ -1,0 +1,26 @@
+@keyframes spin-animation {
+ 100% {
+  transform: rotate(360deg);
+ }
+}
+.preloader {
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ z-index: 9999;
+ display: flex;
+ position: fixed;
+ align-items: center;
+ justify-content: center;
+ min-width: 100vh;
+ min-height: 100vh;
+ background: rgba(150, 150, 150, 0.568);
+}
+
+.logo {
+ width: 160px;
+ height: 160px;
+ border-radius: 50rem;
+ animation: spin-animation 1.5s linear infinite;
+}
