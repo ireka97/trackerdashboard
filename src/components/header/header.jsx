@@ -1,10 +1,11 @@
 import {useState, useEffect} from "react"
 import {useNavigate} from "react-router-dom"
 import Identicon from "../identicon/identicon"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBell } from "@fortawesome/free-solid-svg-icons"
-import { getregistrasi } from "../../api/registerasi.jsx" // Pastikan path sesuai
-import './header.css'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faBell} from "@fortawesome/free-solid-svg-icons"
+import {getregistrasi} from "../../api/registerasi.jsx"
+import Swal from "sweetalert2" // 🔹 Import SweetAlert2
+import "./header.css"
 
 export default function Header() {
  const [username, setUsername] = useState("")
@@ -24,11 +25,10 @@ export default function Header() {
   }
 
   fetchPending()
-
-  // Optional: polling setiap 30 detik
   const interval = setInterval(fetchPending, 30000)
   return () => clearInterval(interval)
  }, [])
+
  useEffect(() => {
   const username = localStorage.getItem("username")
   if (username) {
@@ -37,9 +37,28 @@ export default function Header() {
  }, [])
 
  const handleLogout = () => {
-  localStorage.removeItem("token")
-  localStorage.removeItem("username")
-  navigate("/login")
+  Swal.fire({
+   title: "Yakin ingin logout?",
+   text: "Anda akan keluar dari akun ini.",
+   icon: "warning",
+   showCancelButton: true,
+   confirmButtonColor: "#d33",
+   cancelButtonColor: "#3085d6",
+   confirmButtonText: "Ya, logout",
+   cancelButtonText: "Batal"
+  }).then((result) => {
+   if (result.isConfirmed) {
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    Swal.fire({
+     icon: "success",
+     title: "Logout Berhasil",
+     timer: 1500,
+     showConfirmButton: false
+    })
+    setTimeout(() => navigate("/login"), 1500)
+   }
+  })
  }
 
  return (

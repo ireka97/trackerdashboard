@@ -1,0 +1,49 @@
+.page-header {
+ display: flex;
+ align-items: center;
+ /* border-bottom: 1px solid #ddd; */
+ padding-bottom: 8px;
+ margin-bottom: 16px;
+ justify-content: space-between;
+ padding: 5px 4px;
+}
+
+.page-header-left {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: nowrap;
+ align-items: flex-start;
+}
+
+.page-title-header {
+ font-size: 18px;
+ font-weight: bold;
+}
+
+.page-subtitle {
+ font-size: 13px;
+ color: #555;
+ margin-top: 2px;
+}
+
+.page-header-right {
+ text-align: right;
+}
+
+.time-label {
+ font-size: 11px;
+ color: #666;
+ margin: 0;
+}
+
+.time-value {
+ font-size: 20px;
+ font-weight: bold;
+ margin: 0;
+}
+
+.date-value {
+ font-size: 11px;
+ color: #666;
+ margin: 0;
+}

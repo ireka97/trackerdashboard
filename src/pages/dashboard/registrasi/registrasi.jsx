@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faSearch, faChevronLeft, faChevronRight, faEye} from "@fortawesome/free-solid-svg-icons"
 import {formatDate} from "../../../config/formateddate"
 import Loader from "../../../components/loader/loader"
+import TitleHeader from "../../../components/titleheader/titleheader"
 import Table from "react-bootstrap/Table"
 import "./registrasi.css"
 
@@ -89,7 +90,7 @@ export default function RegistrasiPage() {
 
  return (
   <div className="register-container">
-   <h1>Manajemen Registrasi</h1>
+   <TitleHeader title="Data Registrasi Pendakian" subtitle="Kelola pendaftaran dan booking pendakian" />
    <div className="register-actions">
     <div className="search-wrapper">
      <FontAwesomeIcon icon={faSearch} className="search-icon" />

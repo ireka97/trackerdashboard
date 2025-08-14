@@ -3,6 +3,7 @@ import {faArrowUp, faArrowDown, faUsers, faFlagCheckered, faSearch, faRunning} f
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {MapContainer, TileLayer, Polyline} from "react-leaflet"
 import {getLeafletIconFromConfig, MarkerIcon} from "../../../config/markericon.jsx"
+import TitleHeader from "../../../components/titleheader/titleheader.jsx"
 import RenderGroupedLogs from "../../../components/map/rendergrouplog.jsx"
 import RenderPosMarkers from "../../../components/map/renderpos.jsx"
 import RenderUserLogs from "../../../components/map/renderuser.jsx"
@@ -593,6 +594,7 @@ export default function HomePage() {
 
  return (
   <div className="user-container-fluid">
+   <TitleHeader title="Dashboard Traffic Control" subtitle="Monitoring aktivitas pendakian gunung hari ini" />
    <div className="status-pendakian-wrapper">
     <h3 className="status-header-title">Status Pendakian Hari Ini - {today}</h3>
     <div className="global-summary-wrapper">

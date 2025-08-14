@@ -1,33 +1,16 @@
-import React from "react"
+
 import {useState, useEffect, useMemo} from "react"
-import {MapContainer, TileLayer, Marker, Popup, Polyline, useMap} from "react-leaflet"
 import {GetUsers, DeleteUser} from "../../../api/user"
-import {GetTrackingByUserId} from "../../../api/tracking"
 import {GetSessions} from "../../../api/session.jsx"
 import jalurData from "../../../config/jalur"
-import {getLeafletIconFromConfig, MarkerIcon} from "../../../config/markericon.jsx"
 import {formatDateTime} from "../../../config/formateddate.js"
-import {FaRunning} from "@react-icons/all-files/fa/FaRunning" // ✅ jika pakai all-files
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import TitleHeader from "../../../components/titleheader/titleheader"
 import {faSearch, faArrowLeft, faArrowRight, faTrash} from "@fortawesome/free-solid-svg-icons"
 import Swal from "sweetalert2"
 import "leaflet/dist/leaflet.css"
 import "./user.css"
 
-// Komponen untuk zoom otomatis ke overlayBounds
-// function FitBoundsToJalur({bounds}) {
-//  const map = useMap()
-
-//  useEffect(() => {
-//   if (bounds && bounds.length === 2) {
-//    map.fitBounds(bounds)
-//   }
-//  }, [bounds, map])
-
-//  return null
-// }
-
-// const COLORS = ["red", "blue", "green", "orange", "purple", "brown", "pink", "black", "teal", "gray"]
 
 export default function UserPage() {
  const [users, setUsers] = useState([])
@@ -133,190 +116,24 @@ export default function UserPage() {
    }
  }
 
- // Ambil tracking log user
- //  useEffect(() => {
- //   if (!selectedUserId) {
- //    setUserTrackingData(null)
- //    return
- //   }
-
- //   let intervalId
-
- //   const fetchTracking = async () => {
- //    try {
- //     const response = await GetTrackingByUserId(selectedUserId)
- //     const fetched = Array.isArray(response.data) ? response.data[0] : response.data
- //     const newSessions = fetched.tracking_session ?? []
-
- //     setUserTrackingData((prev) => {
- //      if (!prev) return fetched
-
- //      const prevSessions = prev.tracking_session ?? []
-
- //      // Gabungkan sesi berdasarkan ID
- //      const mergedSessions = newSessions.map((newSession) => {
- //       const prevSession = prevSessions.find((s) => s.tracking_session_id === newSession.tracking_session_id)
-
- //       // Jika sesi sudah ada, hanya tambahkan log yang baru
- //       if (prevSession) {
- //        const prevLogTimestamps = new Set(prevSession.tracking_log.map((l) => l.timestamp))
- //        const newLogs = newSession.tracking_log.filter((l) => !prevLogTimestamps.has(l.timestamp))
-
- //        return {
- //         ...newSession,
- //         tracking_log: [...prevSession.tracking_log, ...newLogs].sort(
- //          (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
- //         )
- //        }
- //       }
-
- //       // Jika sesi belum ada, tambahkan seluruh sesi
- //       return newSession
- //      })
-
- //      return {
- //       ...fetched,
- //       tracking_session: mergedSessions
- //      }
- //     })
- //    } catch (err) {
- //     console.error("Gagal fetch logs", err)
- //    }
- //   }
- //   fetchTracking()
- //   intervalId = setInterval(fetchTracking, 10000) // setiap 10 detik
-
- //   return () => {
- //    clearInterval(intervalId)
- //   }
- //  }, [selectedUserId])
-
- //  useEffect(() => {
- //   if (selectedUserId) return
- //   const fetchAllTracking = async () => {
- //    const logData = {}
-
- //    await Promise.all(
- //     currentItems.map(async (user) => {
- //      try {
- //       const res = await GetTrackingByUserId(user.user_id)
- //       const sessions = res.data[0]?.tracking_session ?? []
- //       const logs = sessions.flatMap((session) =>
- //        session.tracking_log
- //         .filter((log) => selectedJalur?.jalur_id == log.jalur_id)
- //         .map((log) => ({
- //          ...log,
- //          user_id: user.user_id,
- //          nama_user: user.nama
- //         }))
- //       )
-
- //       const processLogsWithOfflineDetection = (logs, threshold = 1 * 60 * 1000) => {
- //        const sorted = [...logs].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
- //        const offlineIndices = [] // ✅ deklarasikan dulu
-
- //        for (let i = 0; i < sorted.length - 1; i++) {
- //         const cur = sorted[i]
- //         const next = sorted[i + 1]
- //         const delta = new Date(next.timestamp) - new Date(cur.timestamp)
- //         if (delta > threshold) {
- //          offlineIndices.push(i) // index titik terakhir sebelum offline
- //         }
- //        }
-
- //        return sorted.map((log, i) => {
- //         const isReconnect = offlineIndices.includes(i - 1) // titik setelah offlineStart
- //         const isLostBefore = offlineIndices.includes(i) // titik terakhir sebelum offline
- //         return {
- //          ...log,
- //          offlineStart: isLostBefore,
- //          offlineEnd: isReconnect
- //         }
- //        })
- //       }
- //       logData[user.user_id] = processLogsWithOfflineDetection(logs)
- //      } catch (e) {
- //       console.error("Gagal ambil tracking", user.user_id)
- //      }
- //     })
- //    )
-
- //    setAllUserLogs(logData)
- //   }
-
- //   fetchAllTracking()
- //   const intervalId = setInterval(fetchAllTracking, 10000)
-
- //   return () => clearInterval(intervalId)
- //  }, [currentItems, selectedJalur, selectedUserId])
-
- //  useEffect(() => {
- //   if (filteredUsers.length === 1) {
- //    setSelectedUserId(filteredUsers[0].user_id)
- //   }
- //  }, [filteredUsers])
-
- //  // Flatten tracking logs
- //  const enhancedLogs = useMemo(() => {
- //   if (!userTrackingData?.tracking_session) return []
-
- //   const rawLogs = userTrackingData.tracking_session.flatMap((session) =>
- //    session.tracking_log
- //     .filter((log) => selectedJalur?.jalur_id == log.jalur_id)
- //     .map((log) => ({
- //      ...log,
- //      session_id: session.tracking_session_id,
- //      user_id: userTrackingData.user_id,
- //      nama_user: userTrackingData.nama
- //     }))
- //   )
-
- //   const logs = [...rawLogs].sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
- //   const threshold = 1 * 60 * 1000
- //   const offlineIndices = []
-
- //   for (let i = 0; i < logs.length - 1; i++) {
- //    const cur = logs[i]
- //    const next = logs[i + 1]
- //    const delta = new Date(next.timestamp) - new Date(cur.timestamp)
- //    if (delta > threshold) {
- //     offlineIndices.push(i)
- //    }
- //   }
-
- //   return logs.map((log, i) => {
- //    const isReconnect = offlineIndices.includes(i - 1)
- //    const isLostBefore = offlineIndices.includes(i)
- //    return {
- //     ...log,
- //     offlineStart: isLostBefore,
- //     offlineEnd: isReconnect
- //    }
- //   })
- //  }, [userTrackingData, selectedJalur])
-
- //  const polylineCoords = useMemo(() => {
- //   return enhancedLogs.map((log) => [log.latitude, log.longitude])
- //  }, [enhancedLogs])
-
  return (
   <div className="user-container-fluid">
-   <h2>User Tracking Dashboard</h2>
-   <div className="users-actions">
-    <div className="search-wrapper">
-     <FontAwesomeIcon icon={faSearch} className="search-icon" />
-     <input
-      type="text"
-      placeholder="Cari nama"
-      value={searchTerm}
-      onChange={handleInputChange}
-      className="search-input"
-     />
-    </div>
-   </div>
-
+   <TitleHeader title="Data Pendakil" subtitle="Kelola dan pantau data lengkap pendaki" />
    {/* Tabel User */}
    <div className="table-wrapper">
+    <div className="users-actions">
+     <div className="search-wrapper">
+      <FontAwesomeIcon icon={faSearch} className="search-icon" />
+      <input
+       type="text"
+       placeholder="Cari nama"
+       value={searchTerm}
+       onChange={handleInputChange}
+       className="search-input"
+      />
+     </div>
+    </div>
+
     <h3 style={{marginTop: "20px"}}>Daftar User</h3>
     <table border="1" cellPadding={6} style={{width: "100%"}}>
      <thead>

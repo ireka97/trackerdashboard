@@ -1,7 +1,7 @@
 const jalurData = [
  {
   jalur_id: "1",
-  nama_jalur: "Jalur mongkrang",
+  nama_jalur: "Jalur Mongkrang",
   //   image: require("../../public/mongkrang/jalur-mongkrang.jpg"),
   map: {
    initialRegion: {

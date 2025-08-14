@@ -1,17 +1,12 @@
-import React from "react"
+import React, {useState} from "react"
 import {useNavigate} from "react-router-dom"
-import {useEffect, useState} from "react"
 import {loginAdmin} from "../../api/admin"
-import {ErrorAlert, SuccessAlert} from "../../components/alert"
+import Swal from "sweetalert2" // 🔹 Import SweetAlert2
 import loginImg from "../../assets/login.jpg"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faUser, faLock} from "@fortawesome/free-solid-svg-icons"
 import styles from "./login.module.css"
 
 export default function Login() {
  const navigate = useNavigate()
- const [isError, setError] = useState("")
- const [isSuccess, setSuccess] = useState("")
  const [username, setUsername] = useState("")
  const [password, setPassword] = useState("")
 
@@ -20,8 +15,11 @@ export default function Login() {
   const data = {username, password}
 
   if (!username || !password) {
-   console.log("❌ Username/password kosong")
-   setError("Username dan password tidak boleh kosong.")
+   Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Username dan password tidak boleh kosong."
+   })
    return
   }
 
@@ -29,16 +27,29 @@ export default function Login() {
    const response = await loginAdmin(data)
 
    if (response.status === 200) {
-    setSuccess(response.data.message)
+    Swal.fire({
+     icon: "success",
+     title: "Berhasil!",
+     text: response.data.message,
+     timer: 1500,
+     showConfirmButton: false
+    })
     localStorage.setItem("token", response.data.token)
     localStorage.setItem("username", response.data.admin?.username)
     setTimeout(() => navigate("/dashboard"), 1500)
    } else {
-    setError(response?.data?.message || response?.data?.messege || "Terjadi kesalahan saat login.")
+    Swal.fire({
+     icon: "error",
+     title: "Gagal Login",
+     text: response?.data?.message || "Terjadi kesalahan saat login."
+    })
    }
   } catch (error) {
-   const msg = error.response?.data?.message || error.response?.data?.messege || "Terjadi kesalahan saat login."
-   setError(msg)
+   Swal.fire({
+    icon: "error",
+    title: "Error",
+    text: error.response?.data?.message || "Terjadi kesalahan saat login."
+   })
   }
  }
 
@@ -46,55 +57,53 @@ export default function Login() {
   navigate("/signup")
  }
 
-return (
- <div className={styles.loginContainer}>
-  <div className={styles.imageSection}>
-   <img className={styles.loginImage} src={loginImg} alt="image" />
-   <div className={styles.imageOverlay} />
-  </div>
+ return (
+  <div className={styles.loginContainer}>
+   <div className={styles.imageSection}>
+    <img className={styles.loginImage} src={loginImg} alt="image" />
+    <div className={styles.imageOverlay} />
+   </div>
 
-  <div className={styles.formSection}>
-   <form onSubmit={handleLogin} className={styles.formBox}>
-    {isError && <ErrorAlert message={isError} onClose={() => setError("")} />}
-    {isSuccess && <SuccessAlert message={isSuccess} onClose={() => setSuccess("")} />}
-    <h2 className={styles.formTitle}>LOGIN</h2>
+   <div className={styles.formSection}>
+    <form onSubmit={handleLogin} className={styles.formBox}>
+     <h2 className={styles.formTitle}>LOGIN</h2>
 
-    <div className={styles.inputGroup}>
-     <label className={styles.inputLabel}>Username</label>
-     <input
-      placeholder="username"
-      className={styles.inputField}
-      type="text"
-      value={username}
-      onChange={(e) => setUsername(e.target.value)}
-     />
-    </div>
-
-    <div className={styles.inputGroup}>
-     <label className={styles.inputLabel}>Password</label>
-     <input
-      placeholder="password"
-      className={styles.inputField}
-      type="password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-     />
-    </div>
-
-    <div className={styles.buttonGroup}>
-     <div className={styles.buttonWrapper}>
-      <button type="submit" className={styles.btn}>
-       LOGIN
-      </button>
+     <div className={styles.inputGroup}>
+      <label className={styles.inputLabel}>Username</label>
+      <input
+       placeholder="username"
+       className={styles.inputField}
+       type="text"
+       value={username}
+       onChange={(e) => setUsername(e.target.value)}
+      />
      </div>
-     <div className={styles.buttonWrapper}>
-      <button type="button" onClick={handleNavigateRegister} className={styles.btn}>
-       REGISTER
-      </button>
+
+     <div className={styles.inputGroup}>
+      <label className={styles.inputLabel}>Password</label>
+      <input
+       placeholder="password"
+       className={styles.inputField}
+       type="password"
+       value={password}
+       onChange={(e) => setPassword(e.target.value)}
+      />
      </div>
-    </div>
-   </form>
+
+     <div className={styles.buttonGroup}>
+      <div className={styles.buttonWrapper}>
+       <button type="submit" className={styles.btn}>
+        LOGIN
+       </button>
+      </div>
+      <div className={styles.buttonWrapper}>
+       <button type="button" onClick={handleNavigateRegister} className={styles.btn}>
+        REGISTER
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
   </div>
- </div>
-)
+ )
 }
