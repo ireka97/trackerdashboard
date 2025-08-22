@@ -87,14 +87,14 @@ export default function HomePage() {
        status === "mulai pendakian" ||
        status === "pendakian naik di-pause" ||
        status === "pendakian naik dilanjutkan" ||
-       (status.startsWith("check-in") && status.includes("(naik)"))
+       (status.startsWith("check-in") && status.includes("naik"))
       ) {
        naik++
       } else if (
        status === "memulai turun pendakian" ||
        status === "pendakian turun di-pause" ||
        status === "pendakian turun dilanjutkan" ||
-       (status.startsWith("check-in") && status.includes("(turun)"))
+       (status.startsWith("check-in") && status.includes("turun"))
       ) {
        turun++
       } else if (status === "pendakian berakhir") {
@@ -130,14 +130,14 @@ export default function HomePage() {
       status === "mulai pendakian" ||
       status === "pendakian naik di-pause" ||
       status === "pendakian naik dilanjutkan" ||
-      (status.startsWith("check-in") && status.includes("(naik)"))
+      (status.startsWith("check-in") && status.includes("naik"))
      )
       naik++
      else if (
       status === "memulai turun pendakian" ||
       status === "pendakian turun di-pause" ||
       status === "pendakian turun dilanjutkan" ||
-      (status.startsWith("check-in") && status.includes("(turun)"))
+      (status.startsWith("check-in") && status.includes("turun"))
      )
       turun++
      else if (status === "pendakian berakhir") selesai++
@@ -348,8 +348,8 @@ export default function HomePage() {
          {status === "pendakian turun di-pause" && <span className="icon pause">↓ pause</span>}
          {status === "pendakian naik dilanjutkan" && <span className="icon continue">↑ continue</span>}
          {status === "pendakian turun dilanjutkan" && <span className="icon continue">↓ continue</span>}
-         {status?.startsWith("check-in") && status.includes("(naik)") && <span className="icon naik">↑ {status}</span>}
-         {status?.startsWith("check-in") && status.includes("(turun)") && <span className="icon turun">↓ {status}</span>}
+         {status?.startsWith("check-in") && status.includes("naik") && <span className="icon naik">↑ {status}</span>}
+         {status?.startsWith("check-in") && status.includes("turun") && <span className="icon turun">↓ {status}</span>}
         </div>
         <strong>{user.nama}</strong>
        </div>
